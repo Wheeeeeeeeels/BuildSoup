@@ -1,7 +1,5 @@
 ## BuildSoup
 
 
-> This project is for some complex build project
 
-
-*  FFMpeg base on Centos 2022
+*  FFMpeg base on Centos8 【FFMpeg 5.1 with x264,x265,aac,opus】
