@@ -75,7 +75,7 @@ cd nasm-2.15.05
 sudo sh autogen.sh
 
 echo  ">>>>>>>>>>>>>>>>>>>>>>>>>>>>3.3 The nasm build start>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
-./configure --prefix="$HOME/ffmpeg_build" --bindir="$HOME/ffmpeg_bin"
+./configure --prefix="$HOME_DIRECTORY/ffmpeg_build" --bindir="$HOME_DIRECTORY/ffmpeg_bin"
 
 
 sudo make -j4
@@ -95,8 +95,8 @@ echo  ">>>>>>>>>>>>>>>>>>>>>>>>>>>>4.1 The yasm download Success.>>>>>>>>>>>>>>>
 tar xzvf yasm-1.3.0.tar.gz
 echo  ">>>>>>>>>>>>>>>>>>>>>>>>>>>>4.2 The yasm decompression Success.>>>>>>>>>>>>>>>>>>>>>"
 cd yasm-1.3.0
-echo  ">>>>>>>>>>>>>>>>>>>>>>>>>>>>3.3 The yasm build start>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
-./configure --prefix="$HOME/ffmpeg_build" --bindir="$HOME/ffmpeg_bin"
+echo  ">>>>>>>>>>>>>>>>>>>>>>>>>>>>4.3 The yasm build start>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+./configure --prefix="$HOME_DIRECTORY/ffmpeg_build" --bindir="$HOME_DIRECTORY/ffmpeg_bin"
 sudo make -j4
 sudo make install
 echo  ">>>>>>>>>>>>>>>>>>>>>>>>>>>>4.4 The yasm build finish.>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
@@ -128,14 +128,37 @@ cd $HOME_DIRECTORY/ffmpeg_sources
 git clone --depth 1 https://code.videolan.org/videolan/x264.git
 echo  ">>>>>>>>>>>>>>>>>>>>>>>>>>>>6.1 The x264 download Success.>>>>>>>>>>>>>>>>>>>>"
 cd x264
-PKG_CONFIG_PATH="$HOME/ffmpeg_build/lib/pkgconfig"
-./configure --prefix="$HOME/ffmpeg_build" --bindir="$HOME/ffmpeg_bin" --enable-static
+PKG_CONFIG_PATH="$HOME_DIRECTORY/ffmpeg_build/lib/pkgconfig"
+./configure --prefix="$HOME_DIRECTORY/ffmpeg_build" --bindir="$HOME_DIRECTORY/ffmpeg_bin" --enable-static
 echo  ">>>>>>>>>>>>>>>>>>>>>>>>>>>>6.2 The x264 build start>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
 sudo make -j4
 sudo make install
 echo  ">>>>>>>>>>>>>>>>>>>>>>>>>>>>6.3 The x264 build finish.>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
 fi
 echo "-------------------------------------------------------------------------------------"
+
+# install the x264.pc
+cd $HOME_DIRECTORY/ffmpeg_build/lib/pkgconfig/
+sudo touch x264.pc
+
+echo "prefix=$HOME_DIRECTORY/ffmpeg_build
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: x264
+Description: H.264 (MPEG AVC) encoder library
+Version: 0.164.x
+Libs: -L${exec_prefix}/lib -lx264 -lpthread -lm -ldl
+Libs.private:
+Cflags: -I${prefix}/include > x264.pc
+
+# Test the x265 install process
+cat x265.pc
+
+echo "-----------------------------X264.PC CREATE SUCCESS---------------------------------"
+
+
 
 
 
@@ -145,7 +168,7 @@ cd $HOME_DIRECTORY/ffmpeg_sources
 git clone https://bitbucket.org/multicoreware/x265_git --depth 1
 echo  ">>>>>>>>>>>>>>>>>>>>>>>>>>>>6.1 The x265 download Success.>>>>>>>>>>>>>>>>>>>>>>>>>>"
 cd ./x265_git/build/linux
-sudo cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX="$HOME/ffmpeg_build" -DENABLE_SHARED:bool=off ../../source
+sudo cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX="$HOME_DIRECTORY/ffmpeg_build" -DENABLE_SHARED:bool=off ../../source
 echo  ">>>>>>>>>>>>>>>>>>>>>>>>>>>>6.2 The x265 build start>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
 sudo make -j4
 sudo make install
@@ -251,5 +274,5 @@ echo "
 ██╔══╝  ██╔══╝  ██║╚██╔╝██║██╔═══╝ ██╔══╝  ██║   ██║
 ██║     ██║     ██║ ╚═╝ ██║██║     ███████╗╚██████╔╝
 ╚═╝     ╚═╝     ╚═╝     ╚═╝╚═╝     ╚══════╝ ╚═════╝
-
 "
+fi
