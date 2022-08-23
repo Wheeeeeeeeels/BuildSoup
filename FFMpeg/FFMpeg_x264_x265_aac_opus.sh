@@ -138,31 +138,23 @@ fi
 echo "-------------------------------------------------------------------------------------"
 
 # install the x264.pc
-cd $HOME_DIRECTORY/ffmpeg_build/lib/pkgconfig/
-sudo touch x264.pc
+sudo touch $HOME_DIRECTORY/ffmpeg_build/lib/pkgconfig/x264.pc
 
 echo "prefix=$HOME_DIRECTORY/ffmpeg_build
 exec_prefix=${prefix}
 libdir=${exec_prefix}/lib
 includedir=${prefix}/include
-
 Name: x264
 Description: H.264 (MPEG AVC) encoder library
 Version: 0.164.x
 Libs: -L${exec_prefix}/lib -lx264 -lpthread -lm -ldl
 Libs.private:
 Cflags: -I${prefix}/include > x264.pc
-
-# Test the x265 install process
-cat x265.pc
-
-echo "-----------------------------X264.PC CREATE SUCCESS---------------------------------"
-
-
-
-
-
+# Test the x264 install process
+cat x264.pc
+echo "-----------------------------X264.PC CREATE SUCCESS----------------------------------"
 echo "-----------------------------INSTALL X265--------------------------------------------"
+
 if [ $(pwd) != $HOME_DIRECTORY/ffmpeg_sources ];then
 cd $HOME_DIRECTORY/ffmpeg_sources
 git clone https://bitbucket.org/multicoreware/x265_git --depth 1
@@ -173,14 +165,11 @@ echo  ">>>>>>>>>>>>>>>>>>>>>>>>>>>>6.2 The x265 build start>>>>>>>>>>>>>>>>>>>>>
 sudo make -j4
 sudo make install
 echo  ">>>>>>>>>>>>>>>>>>>>>>>>>>>>6.3 The x265 build finish.>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
-
 fi
 echo "-------------------------------------------------------------------------------------"
-
 # install the x265.pc
 cd $HOME_DIRECTORY/ffmpeg_build/lib/pkgconfig/
 sudo touch x265.pc
-
 echo "prefix=$HOME_DIRECTORY/ffmpeg_build
 exec_prefix=${prefix}
 libdir=${exec_prefix}/lib
@@ -192,18 +181,12 @@ Version: 3.5
 Libs: -L${libdir} -lx265
 Libs.private: -lstdc++ -lm -ldl -lpthread
 Cflags: -I${includedir}" > x265.pc
-
 # Test the x265 install process
 cat x265.pc
-
 echo "-----------------------------X265.PC CREATE SUCCESS---------------------------------"
-
-
-
 echo "-----------------------------INSTALL AAC--------------------------------------------"
 if [ $(pwd) != $HOME_DIRECTORY/ffmpeg_sources ];then
 cd $HOME_DIRECTORY/ffmpeg_sources
-
 echo  ">>>>>>>>>>>>>>>>>>>>>>>>>>>>7.1 The AAC download Success.>>>>>>>>>>>>>>>>>>>>>>>>>>"
 git clone --depth 1 https://github.com/mstorsjo/fdk-aac
 cd fdk-aac
@@ -218,8 +201,6 @@ sudo make -j4
 sudo make install
 fi
 echo  ">>>>>>>>>>>>>>>>>>>>>>>>>>>>7.3 The AAC build finish.>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
-
-
 echo "-----------------------------INSTALL OPUS-------------------------------------------"
 if [ $(pwd) != $HOME_DIRECTORY/ffmpeg_sources ];then
 cd $HOME_DIRECTORY/ffmpeg_sources
@@ -233,7 +214,6 @@ sudo make -j4
 sudo make install
 echo  ">>>>>>>>>>>>>>>>>>>>>>>>>>>>8.3 The OPUS build finish.>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
 fi
-
 echo "-----------------------------INSTALL FFmpeg------------------------------------------"
 if [ $(pwd) != $HOME_DIRECTORY/ffmpeg_sources ];then
 cd $HOME_DIRECTORY/ffmpeg_sources
@@ -260,11 +240,8 @@ sudo make -j4
 sudo make install
 ffmpeg -version
 echo  ">>>>>>>>>>>>>>>>>>>>>>>>>>>>9.2 The FFmpeg install Success.>>>>>>>>>>>>>>>>>>>>>>>>>"
-
 hash -d ffmpeg
-
 echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>ALL Build Finish>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
-
 echo "
 
 
