@@ -149,7 +149,7 @@ Description: H.264 (MPEG AVC) encoder library
 Version: 0.164.x
 Libs: -L${exec_prefix}/lib -lx264 -lpthread -lm -ldl
 Libs.private:
-Cflags: -I${prefix}/include > x264.pc
+Cflags: -I${prefix}/include" > x264.pc
 # Test the x264 install process
 cat x264.pc
 echo "-----------------------------X264.PC CREATE SUCCESS----------------------------------"
