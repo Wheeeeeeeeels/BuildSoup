@@ -62,7 +62,7 @@ sudo yum -y install autoconf automake bzip2 bzip2-devel cmake freetype-devel gcc
 echo  ">>>>>>>>>>>>>>>>>>>>>>>>>>>>2. The Base Dependency Success.>>>>>>>>>>>>>>>>>>>>>>>>>"
 
 # 5. Add the nasm Assembler and accelerates the build
-echo "-----------------------------INSTALL NASM--------------------------------------------"
+echo -e "\033[5;34m-----------------------------INSTALL NASM--------------------------------------------\033[0m"
 if [ $(pwd) != $HOME_DIRECTORY/ffmpeg_sources ];then
 cd $HOME_DIRECTORY/ffmpeg_sources
 curl -O -L https://www.nasm.us/pub/nasm/releasebuilds/2.15.05/nasm-2.15.05.tar.bz2
@@ -87,7 +87,7 @@ echo "--------------------------------------------------------------------------
 
 
 # 6. Add the yasm: Use to support compilation optimization
-echo "-----------------------------INSTALL YASM--------------------------------------------"
+echo -e "\033[5;34m-----------------------------INSTALL YASM--------------------------------------------\033[0m"
 if [ $(pwd) != $HOME_DIRECTORY/ffmpeg_sources ];then
 cd $HOME_DIRECTORY/ffmpeg_sources
 curl -O -L https://www.tortall.net/projects/yasm/releases/yasm-1.3.0.tar.gz
@@ -105,7 +105,7 @@ echo "--------------------------------------------------------------------------
 
 
 # 7. Add pkg-config
-echo "-----------------------------INSTALL PKG CONFIG--------------------------------------"
+echo -e "\033[5;34m-----------------------------INSTALL PKG CONFIG--------------------------------------\033[0m"
 if [ $(pwd) != $HOME_DIRECTORY/ffmpeg_sources ];then
 cd $HOME_DIRECTORY/ffmpeg_sources
 curl -O -L https://pkg-config.freedesktop.org/releases/pkg-config-0.29.2.tar.gz
@@ -122,7 +122,7 @@ fi
 echo "-------------------------------------------------------------------------------------"
 
 # 8. Add x264
-echo "-----------------------------INSTALL X264--------------------------------------------"
+echo -e "\033[5;34m-----------------------------INSTALL X264--------------------------------------------\033[0m"
 if [ $(pwd) != $HOME_DIRECTORY/ffmpeg_sources ];then
 cd $HOME_DIRECTORY/ffmpeg_sources
 git clone --depth 1 https://code.videolan.org/videolan/x264.git
@@ -153,7 +153,7 @@ Cflags: -I${prefix}/include" > x264.pc
 # Test the x264 install process
 cat x264.pc
 echo "-----------------------------X264.PC CREATE SUCCESS----------------------------------"
-echo "-----------------------------INSTALL X265--------------------------------------------"
+echo -e "\033[5;34m-----------------------------INSTALL X265--------------------------------------------\033[0m"
 
 if [ $(pwd) != $HOME_DIRECTORY/ffmpeg_sources ];then
 cd $HOME_DIRECTORY/ffmpeg_sources
@@ -184,7 +184,7 @@ Cflags: -I${includedir}" > x265.pc
 # Test the x265 install process
 cat x265.pc
 echo "-----------------------------X265.PC CREATE SUCCESS---------------------------------"
-echo "-----------------------------INSTALL AAC--------------------------------------------"
+echo -e "\033[5;34m-----------------------------INSTALL AAC--------------------------------------------\033[0m"
 if [ $(pwd) != $HOME_DIRECTORY/ffmpeg_sources ];then
 cd $HOME_DIRECTORY/ffmpeg_sources
 echo  ">>>>>>>>>>>>>>>>>>>>>>>>>>>>7.1 The AAC download Success.>>>>>>>>>>>>>>>>>>>>>>>>>>"
@@ -201,7 +201,7 @@ sudo make -j4
 sudo make install
 fi
 echo  ">>>>>>>>>>>>>>>>>>>>>>>>>>>>7.3 The AAC build finish.>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
-echo "-----------------------------INSTALL OPUS-------------------------------------------"
+echo -e "\033[5;34m-----------------------------INSTALL OPUS-------------------------------------------\033[0m"
 if [ $(pwd) != $HOME_DIRECTORY/ffmpeg_sources ];then
 cd $HOME_DIRECTORY/ffmpeg_sources
 curl -O -L https://archive.mozilla.org/pub/opus/opus-1.3.1.tar.gz
@@ -214,7 +214,7 @@ sudo make -j4
 sudo make install
 echo  ">>>>>>>>>>>>>>>>>>>>>>>>>>>>8.3 The OPUS build finish.>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
 fi
-echo "-----------------------------INSTALL FFmpeg------------------------------------------"
+echo -e "\033[5;34m-----------------------------INSTALL FFmpeg------------------------------------------\033[0m"
 if [ $(pwd) != $HOME_DIRECTORY/ffmpeg_sources ];then
 cd $HOME_DIRECTORY/ffmpeg_sources
 # Now the version of the FFmpeg is 5.1
@@ -241,7 +241,7 @@ sudo make install
 ffmpeg -version
 echo  ">>>>>>>>>>>>>>>>>>>>>>>>>>>>9.2 The FFmpeg install Success.>>>>>>>>>>>>>>>>>>>>>>>>>"
 hash -d ffmpeg
-echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>ALL Build Finish>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+echo -e "\033[5;34m>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>ALL Build Finish>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\033[0m"
 echo "
 
 
