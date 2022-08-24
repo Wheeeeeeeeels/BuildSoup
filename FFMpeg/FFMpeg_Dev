@@ -241,7 +241,7 @@ cd $HOME_DIRECTORY/ffmpeg_sources
 curl -O -L https://ffmpeg.org/releases/ffmpeg-snapshot.tar.bz2
 tar xjvf ffmpeg-snapshot.tar.bz2
 cd ffmpeg
-PATH="$HOME_DIRECTORY/ffmpeg_bin:$PATH" PKG_CONFIG_PATH="$HOME_DIRECTORY/ffmpeg_build/lib/pkgconfig" && sudo ./configure \
+PATH="$HOME_DIRECTORY/ffmpeg_bin:$PATH" PKG_CONFIG_PATH="$HOME_DIRECTORY/ffmpeg_build/lib/pkgconfig" ./configure \
   --prefix="$HOME_DIRECTORY/ffmpeg_build" \
   --pkg-config-flags="--static" \
   --extra-cflags="-I $HOME_DIRECTORY/ffmpeg_build/include" \
@@ -253,7 +253,7 @@ PATH="$HOME_DIRECTORY/ffmpeg_bin:$PATH" PKG_CONFIG_PATH="$HOME_DIRECTORY/ffmpeg_
   --enable-libx264 \
   --enable-libx265 \
   --enable-libfdk_aac \
-  --enable-libopus \ 
+  --enable-libopus \
   --enable-nonfree \
   --disable-x86asm
   
