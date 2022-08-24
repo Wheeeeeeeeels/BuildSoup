@@ -15,7 +15,6 @@ echo "      ___           ___           ___           ___                       
      \__\/         \__\/         \__\/         \__\/                       \__\/   "
 echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>ALL Build Start>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
 
-
 # 1. Choose the directory that you want to install.
 read -p "Please input the HOME Directory that you want install("/[INPUT]"> " HOME_DIRECTORY
 echo $HOME_DIRECTORY
