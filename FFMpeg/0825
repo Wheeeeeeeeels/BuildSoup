@@ -231,34 +231,33 @@ echo  ">>>>>>>>>>>>>>>>>>>>>>>>>>>>8.3 The OPUS build finish.>>>>>>>>>>>>>>>>>>>
 fi
 
 echo -e "\033[5;34m-----------------------------INSTALL FFmpeg------------------------------------------\033[0m"
-if [ $(pwd) != $HOME_DIRECTORY/ffmpeg_sources ];then
-cd $HOME_DIRECTORY/ffmpeg_sources
+if [ $(pwd) != $HOME/ffmpeg_sources ];then
+cd $HOME/ffmpeg_sources
 # Now the version of the FFmpeg is 5.1
 curl -O -L https://ffmpeg.org/releases/ffmpeg-snapshot.tar.bz2
 tar xjvf ffmpeg-snapshot.tar.bz2
 cd ffmpeg
-PATH="$HOME_DIRECTORY/ffmpeg_bin:$PATH" PKG_CONFIG_PATH="$HOME_DIRECTORY/ffmpeg_build/lib/pkgconfig" ./configure \
-  --prefix="$HOME_DIRECTORY/ffmpeg_build" \
-  --pkg-config-flags="pkg-config --static" \
-  --extra-cflags="-I $HOME_DIRECTORY/ffmpeg_build/include" \
-  --extra-ldflags="-L $HOME_DIRECTORY/ffmpeg_build/lib" \
+PATH="$HOME/ffmpeg_bin:$PATH" PKG_CONFIG_PATH="$HOME/ffmpeg_build/lib/pkgconfig" ./configure \
+  --prefix="$HOME/ffmpeg_build" \
+  --pkg-config-flags="--static" \
+  --extra-cflags="-I $HOME/ffmpeg_build/include" \
+  --extra-ldflags="-L $HOME/ffmpeg_build/lib" \
   --extra-libs=-lpthread \
   --extra-libs=-lm \
-  --bindir="$HOME_DIRECTORY/ffmpeg_bin" \
+  --bindir="$HOME/ffmpeg_bin" \
   --enable-gpl \
   --enable-libx264 \
   --enable-libx265 \
   --enable-libfdk_aac \
   --enable-libopus \
   --enable-nonfree 
-  #--disable-x86asm
 echo  ">>>>>>>>>>>>>>>>>>>>>>>>>>>>9.1 The Path Set Success.>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
 make -j4
-sudo make -j4
 sudo make install
-ffmpeg -version
+
+# ffmpeg -version
 echo  ">>>>>>>>>>>>>>>>>>>>>>>>>>>>9.2 The FFmpeg install Success.>>>>>>>>>>>>>>>>>>>>>>>>>"
-hash -d ffmpeg
+# hash -d ffmpeg
 echo -e "\033[5;34m>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>ALL Build Finish>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\033[0m"
 echo "
 ███████╗███████╗███╗   ███╗██████╗ ███████╗ ██████╗
