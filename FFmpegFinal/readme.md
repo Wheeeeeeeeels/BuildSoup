@@ -15,6 +15,7 @@
 #### 使用方法：
 
 ```
+0. 极力推荐将其安装到$HOME路径中，以免出现多余的问题
 1. 将opus复制到你需要安装的HOME_DIRECTORY的ffmpeg_sources文件下
 2. 将x265.pc同样放置在HOME_DIRECTORY文件夹下
 3. 启动脚本编译 bash + 执行脚本.sh
