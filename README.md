@@ -4,4 +4,4 @@
 
 * FFMpeg base on Centos8 【FFMpeg 5.1 with x264,x265,aac,opus】
 * [Tmux Config](https://github.com/mrbeardad/DotFiles/blob/master/tmux/tmux.conf)
-* [SpaceVim C/C++ IDE](https://zhuanlan.zhihu.com/p/161713382)
+* [SpaceVim C/C++ IDE](https://zhuanlan.zhihu.com/p/161713382) + Linux
