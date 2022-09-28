@@ -11,7 +11,19 @@
  * [SpaceVim C/C++ IDE+Linux](https://github.com/mrbeardad/SpaceVim) 
 
 
-
+###### Dev Config
+  * Rust
+      * Windows
+      * Linux
+  * Go
+  * Node
+  * Vue
+  * React
+  * C++
+      * Visual Studio Code
+         * Windows
+         * Linux
+        
 ###### Code Style
 
 * Google Style
