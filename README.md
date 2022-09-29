@@ -23,7 +23,10 @@
       * Visual Studio Code
          * Windows
          * Linux
-        
+   * Python
+      * Anaconda 
+
+
 ###### Code Style
 
 * Google Style
