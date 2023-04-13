@@ -1,0 +1,2 @@
+include ':app', ':netprotocol'
+rootProject.name='NetProtocolExample'
